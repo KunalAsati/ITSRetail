@@ -25,10 +25,11 @@ public class WheatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         Log.d("xyzr22","before set successful!!");
         setContentView(R.layout.activity_wheat);
         Log.d("xyzr22","creation successfull, "+btnText);
-        button=findViewById(R.id.button3);
+        /*button=findViewById(R.id.button3);
        // db=new DatabaseManager();
        // s=db.getStatus("wheat");
         if(btnText.equalsIgnoreCase("no"))
@@ -36,9 +37,9 @@ public class WheatActivity extends AppCompatActivity {
             button.setText("Give a quote");
         }
         else
-            button.setText("Update quote");
+            button.setText("Update quote");*/
     }
-    @Override
+   /* @Override
     protected void onStart(){
         super.onStart();
         mWheatRef.addValueEventListener(new ValueEventListener() {
@@ -52,10 +53,23 @@ public class WheatActivity extends AppCompatActivity {
 
             }
         });
-    }
-    protected void getWheatQuotes(View v){
+    }*/
+    public void getWheatQuotes(View v){
         Log.d("xyzr22","this is getWheatQuotes");
         Intent intent = new Intent(v.getContext(), AllQuotesActivity.class);
+        intent.putExtra("commodity","wheat");
+        startActivity(intent);
+    }
+    protected void setWheatQuote(View v){
+        Log.d("xyzr22","this is setWheatQuotes");
+        Intent intent = new Intent(v.getContext(), SetQuotesActivity.class);
+        intent.putExtra("commodity","wheat");
+        startActivity(intent);
+    }
+    public void getMyQuotes(View v){
+        Log.d("xyzr22","this is getMyQuotes");
+        Intent intent = new Intent(v.getContext(), MyQuotesActivity2.class);
+        intent.putExtra("commodity","wheat");
         startActivity(intent);
     }
 }
